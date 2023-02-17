@@ -1,8 +1,19 @@
 @import '@styles/variables';
 
-.message--not-found {
-  font-size: 2rem;
-  text-align: center;
-  margin-block: 5rem;
-  color: $main-text;
+.not-found {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+
+  &__message {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 5rem;
+    color: $main-text;
+  }
+
+  & > .button--primary {
+    margin-inline: auto;
+  }
 }

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import "@styles/routes/Login.scss";
 import "@styles/common/login-register.scss";
+import "@styles/common/index.scss";
 
 const Login = () => {
   const navigate = useNavigate();

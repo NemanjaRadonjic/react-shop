@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import "@styles/routes/Register.scss";
 import "@styles/common/login-register.scss";
+import "@styles/common/index.scss";
 
 const Register = () => {
   const navigate = useNavigate();
