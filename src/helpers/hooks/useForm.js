@@ -6,9 +6,7 @@ const useForm = initialState => {
   const handleChange = event =>
     setFormState({ ...formState, [event.target.name]: event.target.value });
 
-  const resetForm = () => setFormState(initialState);
-
-  return { formState, handleChange, resetForm };
+  return { formState, handleChange };
 };
 
 export default useForm;

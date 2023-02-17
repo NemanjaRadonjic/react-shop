@@ -8,6 +8,8 @@ export default defineConfig({
     alias: {
       "@routes": path.resolve(__dirname, "./src/routes"),
       "@styles": path.resolve(__dirname, "./src/styles"),
+      "@hooks": path.resolve(__dirname, "./src/helpers/hooks"),
+      "@store": path.resolve(__dirname, "./src/store"),
     },
   },
   plugins: [react()],
