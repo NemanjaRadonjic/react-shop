@@ -1,0 +1,57 @@
+@import '@styles/variables';
+
+.container--auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 50%;
+  height: 100%;
+  background-color: $bg-color;
+  box-shadow: 4px 4px 6px rgb(0,0,0, .2);
+}
+
+.container--auth__heading {
+  margin: 0;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-shadow: 4px 4px 6px rgb(0,0,0, .1);
+}
+
+.container--auth__input {
+  outline: none;
+  border-radius: 4px;
+  padding: .6rem .8rem;
+  background-color: transparent;
+  border: 1px solid $main-color;
+  box-shadow: 4px 4px 6px rgb(0,0,0, .2);
+}
+
+.button--primary {
+  color: $main-text;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  border: none;
+  padding: .5rem 1.5rem;
+  background-color: $main-color;
+  box-shadow: 4px 4px 6px rgb(0,0,0, .2);
+}
+
+input::placeholder {
+  color: rgba(56, 56, 56, 0.6);
+}
+
+.message {
+  color: $main-text;
+  text-align: center;
+  line-height: 1.2rem;
+}
+
+.inline-link {
+  cursor: pointer;
+  color: $main-color;
+  text-decoration: underline;
+}

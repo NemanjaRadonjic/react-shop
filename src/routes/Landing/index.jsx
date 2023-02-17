@@ -1,7 +1,20 @@
-import { Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate, Outlet } from "react-router-dom";
+
+import "@styles/routes/Landing.scss";
 
 const Landing = () => {
-  return <Navigate to="/login" />;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("/login");
+  }, []);
+
+  return (
+    <div className="landing">
+      <Outlet />
+    </div>
+  );
 };
 
 export default Landing;
