@@ -1,9 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import useForm from "@hooks/useForm";
+// import useForm from "@hooks/useForm";
 
 import { register } from "@store/usersReducer";
+import useRegisterForm from "@hooks/useRegisterForm";
 
 import "@styles/routes/Register.scss";
 import "@styles/common/login-register.scss";
@@ -17,53 +18,97 @@ const initialFormState = {
 };
 
 const Register = () => {
-  const { formState, handleChange } = useForm(initialFormState);
+  const { formState, handleChange, errors, handleSubmitErrors, isValid } =
+    useRegisterForm(initialFormState);
+  const users = useSelector(state => state.users);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const handleSubmit = event => {
     event.preventDefault();
-    const { repeatPassword, ...userObject } = formState;
-    dispatch(register(userObject));
-    navigate("/login");
+    const { repeatPassword, ...user } = formState;
+    handleSubmitErrors(users) && (dispatch(register(user)), navigate("/login"));
   };
 
   return (
     <div className="container--auth">
       <form className="container--auth__form" onSubmit={handleSubmit}>
         <h1 className="container--auth__heading">Register</h1>
-        <input
-          name="username"
-          onChange={handleChange}
-          value={formState.username}
-          placeholder="Username"
-          className="container--auth__input"
-          type="text"
-        />
-        <input
-          name="email"
-          onChange={handleChange}
-          value={formState.email}
-          placeholder="Email"
-          className="container--auth__input"
-          type="email"
-        />
-        <input
-          name="password"
-          onChange={handleChange}
-          value={formState.password}
-          placeholder="Password"
-          className="container--auth__input"
-          type="password"
-        />
-        <input
-          name="repeatPassword"
-          onChange={handleChange}
-          value={formState.repeatPassword}
-          placeholder="Repeat password"
-          className="container--auth__input"
-          type="password"
-        />
+        <div>
+          <input
+            name="username"
+            onChange={handleChange}
+            value={formState.username}
+            placeholder="Username"
+            className={`container--auth__input${
+              errors.username ? " error" : ""
+            }`}
+            type="text"
+            required
+          />
+          <div
+            className={`container--auth__error${
+              errors.username ? " active" : ""
+            }`}
+          >
+            {errors.username}
+          </div>
+        </div>
+        <div>
+          <input
+            name="email"
+            onChange={handleChange}
+            value={formState.email}
+            placeholder="Email"
+            className={`container--auth__input${errors.email ? " error" : ""}`}
+            type="email"
+            required
+          />
+          <div
+            className={`container--auth__error${errors.email ? " active" : ""}`}
+          >
+            {errors.email}
+          </div>
+        </div>
+        <div>
+          <input
+            name="password"
+            onChange={handleChange}
+            value={formState.password}
+            placeholder="Password"
+            className={`container--auth__input${
+              errors.password ? " error" : ""
+            }`}
+            type="password"
+            required
+          />
+          <div
+            className={`container--auth__error${
+              errors.password ? " active" : ""
+            }`}
+          >
+            {errors.password}
+          </div>
+        </div>
+        <div>
+          <input
+            name="repeatPassword"
+            onChange={handleChange}
+            value={formState.repeatPassword}
+            placeholder="Repeat password"
+            className={`container--auth__input${
+              errors.repeatPassword ? " error" : ""
+            }`}
+            type="password"
+            required
+          />
+          <div
+            className={`container--auth__error${
+              errors.repeatPassword ? " active" : ""
+            }`}
+          >
+            {errors.repeatPassword}
+          </div>
+        </div>
         <span className="message">
           <p>If you already have an account,</p>
           <p>
@@ -73,7 +118,12 @@ const Register = () => {
             </a>
           </p>
         </span>
-        <input type="submit" value="Register" className="button--primary" />
+        <input
+          disabled={!isValid(errors)}
+          type="submit"
+          value="Register"
+          className="button--primary"
+        />
       </form>
     </div>
   );

@@ -9,6 +9,7 @@ export default defineConfig({
       "@routes": path.resolve(__dirname, "./src/routes"),
       "@styles": path.resolve(__dirname, "./src/styles"),
       "@hooks": path.resolve(__dirname, "./src/helpers/hooks"),
+      "@validation": path.resolve(__dirname, "./src/helpers/validation"),
       "@store": path.resolve(__dirname, "./src/store"),
     },
   },

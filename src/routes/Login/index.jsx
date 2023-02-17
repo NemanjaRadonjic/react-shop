@@ -12,7 +12,7 @@ const initialFormState = {
 };
 
 const Login = () => {
-  const { formState, handleChange } = useForm(initialFormState);
+  const { formState, handleFormChange } = useForm(initialFormState);
   const navigate = useNavigate();
 
   return (
@@ -21,7 +21,7 @@ const Login = () => {
         <h1 className="container--auth__heading">Login</h1>
         <input
           name="email"
-          onChange={handleChange}
+          onChange={handleFormChange}
           value={formState.email}
           className="container--auth__input"
           type="email"
@@ -29,7 +29,7 @@ const Login = () => {
         />
         <input
           name="password"
-          onChange={handleChange}
+          onChange={handleFormChange}
           value={formState.password}
           className="container--auth__input"
           type="password"
