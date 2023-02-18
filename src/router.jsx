@@ -7,17 +7,40 @@ import Shop from "@routes/Shop";
 import Profile from "@routes/Profile";
 import NotFound from "@routes/NotFound";
 
+import ProtectedRoute from "@routes/ProtectedRoute";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Landing />,
     children: [
-      { path: "login", element: <Login /> },
-      { path: "register", element: <Register /> },
+      {
+        path: "login",
+        element: (
+          <ProtectedRoute>
+            <Login />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "register",
+        element: (
+          <ProtectedRoute>
+            <Register />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
   { path: "/shop", element: <Shop /> },
-  { path: "/profile", element: <Profile /> },
+  {
+    path: "/profile",
+    element: (
+      <ProtectedRoute privilege="user">
+        <Profile />
+      </ProtectedRoute>
+    ),
+  },
   { path: "*", element: <NotFound /> },
 ]);
 
