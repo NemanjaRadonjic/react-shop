@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { register } from "@store/usersReducer";
 import useRegisterForm from "@hooks/useRegisterForm";
 
+import localStorage from "@helpers/localStorage";
+
 import "@styles/routes/Register.scss";
 import "@styles/common/login-register.scss";
 import "@styles/common/index.scss";
@@ -26,7 +28,10 @@ const Register = () => {
   const handleSubmit = event => {
     event.preventDefault();
     const { repeatPassword, ...user } = formState;
-    isFormValid(users) && (dispatch(register(user)), navigate("/login"));
+    isFormValid(users) &&
+      (dispatch(register(user)),
+      localStorage.set("users", [...users, user]),
+      navigate("/login"));
   };
 
   return (

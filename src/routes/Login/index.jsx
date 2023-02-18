@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { login } from "@store/currentUserReducer";
 import useLoginForm from "@hooks/useLoginForm";
 
+import localStorage from "@helpers/localStorage";
+
 import "@styles/routes/Login.scss";
 import "@styles/common/login-register.scss";
 import "@styles/common/index.scss";
@@ -23,7 +25,10 @@ const Login = () => {
   const handleSubmit = event => {
     event.preventDefault();
     const user = isLoginFormValid(users);
-    user && (dispatch(login(users)), navitage("/shop"));
+    user &&
+      (dispatch(login(user)),
+      localStorage.set("currentUser", user),
+      navigate("/shop"));
   };
 
   return (

@@ -4,9 +4,10 @@ const usersSlice = createSlice({
   name: "users",
   initialState: [],
   reducers: {
+    populate: (state, action) => action.payload,
     register: (state, action) => [...state, action.payload],
   },
 });
 
-export const { register } = usersSlice.actions;
+export const { populate, register } = usersSlice.actions;
 export default usersSlice.reducer;
