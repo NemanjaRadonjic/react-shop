@@ -8,6 +8,13 @@
   height: 100%;
   background-color: $bg-color;
   box-shadow: 4px 4px 6px rgb(0, 0, 0, 0.2);
+  
+  &__heading {
+    margin: 0;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-shadow: 4px 4px 6px rgb(0, 0, 0, 0.1);
+  }
 
   &__form {
     padding: 2rem;
@@ -16,17 +23,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: .6rem;
   }
 
-  &__heading {
-    margin: 0;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    text-shadow: 4px 4px 6px rgb(0, 0, 0, 0.1);
+  &__field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__input {
+    width: fit-content;
     outline: none;
     border-radius: 4px;
     padding: 0.6rem 0.8rem;
@@ -62,7 +70,8 @@ input::placeholder {
 }
 
 .message {
-  color: $main-text;
+  font-style: italic;
+  color: $gray-text;
   text-align: center;
   line-height: 1.2rem;
 }
@@ -71,4 +80,8 @@ input::placeholder {
   cursor: pointer;
   color: $main-color;
   text-decoration: underline;
+}
+
+.button--auth {
+  margin-block: 1rem;
 }

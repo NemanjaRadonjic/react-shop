@@ -42,7 +42,7 @@ const useRegisterForm = initialState => {
     setErrors(newErrors);
   };
 
-  const handleSubmitErrors = users => {
+  const isFormValid = users => {
     if (isValid(errors)) {
       const newErrors = validateOnSubmit(initialState, formState, users);
       setErrors(newErrors);
@@ -52,7 +52,7 @@ const useRegisterForm = initialState => {
 
   const isValid = errors => !Object.values(errors).some(error => error);
 
-  return { formState, handleChange, errors, handleSubmitErrors, isValid };
+  return { formState, handleChange, errors, isFormValid, isValid };
 };
 
 export default useRegisterForm;

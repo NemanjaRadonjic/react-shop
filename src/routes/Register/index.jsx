@@ -1,7 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-// import useForm from "@hooks/useForm";
 
 import { register } from "@store/usersReducer";
 import useRegisterForm from "@hooks/useRegisterForm";
@@ -18,22 +16,24 @@ const initialFormState = {
 };
 
 const Register = () => {
-  const { formState, handleChange, errors, handleSubmitErrors, isValid } =
+  const { formState, handleChange, errors, isFormValid, isValid } =
     useRegisterForm(initialFormState);
+
   const users = useSelector(state => state.users);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleSubmit = event => {
     event.preventDefault();
     const { repeatPassword, ...user } = formState;
-    handleSubmitErrors(users) && (dispatch(register(user)), navigate("/login"));
+    isFormValid(users) && (dispatch(register(user)), navigate("/login"));
   };
 
   return (
     <div className="container--auth">
       <form className="container--auth__form" onSubmit={handleSubmit}>
         <h1 className="container--auth__heading">Register</h1>
-        <div>
+        <div className="container--auth__field">
           <input
             name="username"
             onChange={handleChange}
@@ -53,7 +53,7 @@ const Register = () => {
             {errors.username}
           </div>
         </div>
-        <div>
+        <div className="container--auth__field">
           <input
             name="email"
             onChange={handleChange}
@@ -69,7 +69,7 @@ const Register = () => {
             {errors.email}
           </div>
         </div>
-        <div>
+        <div className="container--auth__field">
           <input
             name="password"
             onChange={handleChange}
@@ -89,7 +89,7 @@ const Register = () => {
             {errors.password}
           </div>
         </div>
-        <div>
+        <div className="container--auth__field">
           <input
             name="repeatPassword"
             onChange={handleChange}
@@ -122,7 +122,7 @@ const Register = () => {
           disabled={!isValid(errors)}
           type="submit"
           value="Register"
-          className="button--primary"
+          className="button--primary button--auth"
         />
       </form>
     </div>
