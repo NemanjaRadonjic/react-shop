@@ -1,6 +1,7 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { login } from "@store/currentUserReducer";
 import useLoginForm from "@hooks/useLoginForm";
 
 import "@styles/routes/Login.scss";
@@ -16,11 +17,13 @@ const Login = () => {
   const { formState, handleChange, errors, isLoginFormValid } =
     useLoginForm(initialFormState);
   const users = useSelector(state => state.users);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = event => {
     event.preventDefault();
-    isLoginFormValid(users) && console.log("Would be logged in");
+    const user = isLoginFormValid(users);
+    user && (dispatch(login(users)), navitage("/shop"));
   };
 
   return (

@@ -21,10 +21,9 @@ const useLoginForm = initialState => {
         newErrors.password = "Wrong password.";
       } else {
         setErrors(newErrors);
-        return true;
+        return user;
       }
     }
-
     setErrors(newErrors);
   };
 
