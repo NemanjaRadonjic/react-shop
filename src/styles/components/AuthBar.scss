@@ -1,0 +1,44 @@
+@import "@styles/variables";
+
+.auth-bar {
+  position: absolute;
+  bottom: 0;
+  right: 15rem;
+  margin: 1rem;
+  padding: 0.2rem 0.2rem 0.2rem 0.7rem;
+  border-radius: 10px 30px 30px 10px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  box-shadow: 3px 5px 5px rgb(0, 0, 0, 0.1);
+  background-color: $bg-color;
+
+  &__username {
+    font-weight: bold;
+  }
+
+  &__money {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: bold;
+  }
+
+  &__separator {
+    height: 4px;
+    width: 4px;
+    margin-inline: 0.5rem;
+    border-radius: 50%;
+    background-color: $gray-text;
+  }
+
+  & > .inline-link {
+    font-weight: 400;
+  }
+
+  & > .inline-link:hover {
+    color: $main-color;
+  }
+}

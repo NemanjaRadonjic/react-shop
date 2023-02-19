@@ -1,7 +1,7 @@
 @import 'variables';
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Nunito Sans', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -15,3 +15,14 @@
 body {
   color: $main-text;
 }
+
+input, input::placeholder {
+  font-family: 'Nunito Sans', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+// a:-webkit-any-link {
+//   font-style: italic;
+//   color: inherit;
+//   cursor: pointer;
+//   text-decoration: underline;
+// }
