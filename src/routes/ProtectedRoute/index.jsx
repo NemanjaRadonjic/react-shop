@@ -7,12 +7,12 @@ const ProtectedRoute = ({ children, privilege }) => {
     if (currentUser) {
       return children;
     }
-    <Navigate to="/shop" replace={true} />;
+    return <Navigate to="/" replace={true} />;
   } else {
     if (!currentUser) {
       return children;
     }
-    <Navigate to="/shop" replace={true} />;
+    return <Navigate to="/" replace={true} />;
   }
 };
 

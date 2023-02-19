@@ -28,7 +28,7 @@ const Login = () => {
     user &&
       (dispatch(login(user)),
       localStorage.set("currentUser", user),
-      navigate("/shop"));
+      navigate("/"));
   };
 
   return (
@@ -75,7 +75,10 @@ const Login = () => {
           <p>If you don't have an account,</p>
           <p>
             you can register{" "}
-            <a onClick={() => navigate("/register")} className="inline-link">
+            <a
+              onClick={() => navigate("/auth/register")}
+              className="inline-link"
+            >
               here
             </a>
           </p>

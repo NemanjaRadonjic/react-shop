@@ -31,7 +31,7 @@ const Register = () => {
     isFormValid(users) &&
       (dispatch(register(user)),
       localStorage.set("users", [...users, user]),
-      navigate("/login"));
+      navigate("/auth/login"));
   };
 
   return (
@@ -118,7 +118,7 @@ const Register = () => {
           <p>If you already have an account,</p>
           <p>
             you can login{" "}
-            <a onClick={() => navigate("/login")} className="inline-link">
+            <a onClick={() => navigate("/auth/login")} className="inline-link">
               here
             </a>
           </p>
