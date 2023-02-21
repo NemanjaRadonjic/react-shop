@@ -4,11 +4,12 @@ import Auth from "@routes/Auth";
 import Login from "@routes/Login";
 import Register from "@routes/Register";
 import Main from "@routes/Main";
-import Shop from "@routes/Shop";
 import Search from "@routes/Search";
 import Cart from "@routes/Cart";
 import Profile from "@routes/Profile";
 import NotFound from "@routes/NotFound";
+
+import { productsLoader } from "@routes/Shop";
 
 import ProtectedRoute from "@routes/ProtectedRoute";
 
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    loader: productsLoader,
     children: [
       {
         path: "/",

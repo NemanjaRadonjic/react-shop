@@ -1,0 +1,47 @@
+@import "@styles/variables";
+
+.product {
+  box-shadow: 4px 4px 12px rgb(0, 0, 0, 0.3);
+  width: 15rem;
+  height: 15rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+
+  &__image {
+    border-radius: 4px;
+    top: 0;
+    left: 0;
+    width: 13rem;
+    height: 13rem;
+    position: absolute;
+    padding: 1rem;
+  }
+
+  &__info {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    height: fit-content;
+    position: relative;
+    background-color: rgb(255, 255, 255, 0.4);
+    padding: 10px;
+  }
+
+  &__title {
+    color: $main-text;
+    text-align: center;
+  }
+
+  &__price {
+    text-align: center;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+}

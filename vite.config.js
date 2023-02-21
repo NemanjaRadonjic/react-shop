@@ -14,6 +14,7 @@ export default defineConfig({
       "@validation": path.resolve(__dirname, "./src/helpers/validation"),
       "@store": path.resolve(__dirname, "./src/store"),
       "@svgs": path.resolve(__dirname, "./src/components/svgs"),
+      "@axios": path.resolve(__dirname, "./src/axios"),
     },
   },
   plugins: [react()],
