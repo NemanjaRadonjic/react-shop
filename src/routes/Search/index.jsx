@@ -1,3 +1,4 @@
+import "@styles/common/index.scss";
 import "@styles/routes/Search.scss";
 
 import useForm from "@hooks/useForm";
@@ -11,11 +12,11 @@ const Search = () => {
         name="search"
         onChange={handleFormChange}
         value={formState.search}
-        className="search__input"
+        className="input--primary"
         type="text"
         placeholder="What are you looking for..."
       />
-      <input className="search__button" type="submit" value="Search" />
+      <input className="input--primary" type="submit" value="Search" />
     </form>
   );
 };

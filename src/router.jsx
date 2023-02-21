@@ -32,6 +32,18 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "profile/password",
+        element: <div>change password</div>,
+      },
+      {
+        path: "profile/username",
+        element: <div>change username</div>,
+      },
+      {
+        path: "profile/email",
+        element: <div>change email</div>,
+      },
+      {
         path: "cart",
         element: (
           <ProtectedRoute privilege="user">

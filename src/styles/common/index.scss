@@ -11,11 +11,45 @@
   background-color: $main-color;
   box-shadow: 4px 4px 6px rgb(0, 0, 0, 0.2);
   opacity: 1;
-  transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in, color 0.2s ease-in;
+
+  &:hover {
+    color: $bg-color;
+  }
 
   &:disabled {
     opacity: 0.7;
   }
+}
+
+.button--secondary {
+  color: $main-text;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  background-color: $bg-color;
+  box-shadow: 4px 4px 6px rgb(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 0.3s ease-in, color 0.3s ease-in;
+
+  &:hover {
+    color: $main-color;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+  }
+}
+
+.input--primary,
+.button--secondary {
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  box-shadow: 3px 5px 5px rgb(0, 0, 0, 0.1);
 }
 
 .inline-link {
@@ -23,6 +57,10 @@
   cursor: pointer;
   color: $main-text;
   text-decoration: none;
+
+  &:hover {
+    color: $main-color;
+  }
 }
 
 .italic {
