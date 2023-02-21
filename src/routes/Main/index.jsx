@@ -1,17 +1,24 @@
-import { Outlet, useLoaderData } from "react-router-dom";
+import { Suspense } from "react";
+import { Outlet, useLoaderData, Await } from "react-router-dom";
 import Shop from "@routes/Shop";
 import AuthBar from "@components/AuthBar";
+import ShopSkeleton from "@components/skeletons/ShopSkeleton";
 import "@styles/routes/Main.scss";
 
 const Main = () => {
-  const { data } = useLoaderData();
+  const { products } = useLoaderData();
   return (
     <div>
       <div className="spotlight">
         <Outlet />
         <AuthBar />
       </div>
-      <Shop products={data} />
+      <Suspense fallback={<ShopSkeleton />}>
+        <Await
+          resolve={products}
+          children={({ data }) => <Shop products={data} />}
+        />
+      </Suspense>
     </div>
   );
 };
