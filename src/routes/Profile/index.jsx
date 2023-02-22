@@ -1,11 +1,20 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { logout } from "@store/currentUserReducer";
 import useForm from "@hooks/useForm";
+
 import "@styles/common/index.scss";
 import "@styles/routes/Profile.scss";
 
 const Profile = () => {
   const { formState, handleFormChange } = useForm({ money: 0 });
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    dispatch(logout());
+    window.localStorage.removeItem("currentUser");
+  };
+
   return (
     <div className="profile__container">
       <form className="profile__form">
@@ -32,7 +41,10 @@ const Profile = () => {
         Change password
       </Link>
 
-      <button className=" profile__button button--primary button--margin-block">
+      <button
+        onClick={onLogout}
+        className=" profile__button button--primary button--margin-block"
+      >
         Log out
       </button>
     </div>

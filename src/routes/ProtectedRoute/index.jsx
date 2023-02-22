@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import localStorage from "@helpers/localStorage";
 
 const ProtectedRoute = ({ children, privilege }) => {
-  const currentUser = useSelector(state => state.currentUser);
+  const currentUser = localStorage.get("currentUser");
   if (privilege === "user") {
     if (currentUser) {
       return children;

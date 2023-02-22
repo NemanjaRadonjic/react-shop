@@ -28,9 +28,13 @@ const AuthBar = () => {
     );
   }
   return (
-    <div className="auth-bar">
-      <Link to="/auth/login">Login</Link>
-      <Link to="/auth/register">Register</Link>
+    <div className="auth-bar no-user">
+      <Link className="inline-link" to="/auth/login">
+        Login
+      </Link>
+      <Link className="inline-link" to="/auth/register">
+        Register
+      </Link>
     </div>
   );
 };
