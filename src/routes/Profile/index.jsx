@@ -1,31 +1,41 @@
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { logout } from "@store/currentUserReducer";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { logout, addMoney } from "@store/currentUserReducer";
 import useForm from "@hooks/useForm";
 
 import "@styles/common/index.scss";
 import "@styles/routes/Profile.scss";
 
 const Profile = () => {
-  const { formState, handleFormChange } = useForm({ money: 0 });
+  const { formState, handleFormChange, resetForm } = useForm({ amount: 0 });
+  const id = useSelector(state => state.currentUser?.id);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    dispatch(addMoney({ amount: +formState.amount, id }));
+    resetForm();
+  };
 
   const onLogout = () => {
     dispatch(logout());
     window.localStorage.removeItem("currentUser");
+    navigate("/");
   };
 
   return (
     <div className="profile__container">
-      <form className="profile__form">
+      <form onSubmit={handleSubmit} className="profile__form">
         <input
           className="profile__input input--number"
           type="number"
-          name="money"
+          name="amount"
           onChange={handleFormChange}
-          value={formState.money}
+          value={formState.amount}
         />
         <input
+          disabled={formState.amount <= 0}
           className="profile__button button--primary"
           type="submit"
           value="Add money"

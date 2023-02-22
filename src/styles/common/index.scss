@@ -70,3 +70,10 @@
 .underline {
   text-decoration: underline;
 }
+
+.auth-link {
+  cursor: pointer;
+  color: $main-color;
+  text-decoration: underline;
+  font-style: italic;
+}

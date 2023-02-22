@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import uniqueId from "lodash.uniqueid";
 
 import { register } from "@store/usersReducer";
 import useRegisterForm from "@hooks/useRegisterForm";
@@ -27,11 +28,13 @@ const Register = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const { repeatPassword, ...user } = formState;
-    isFormValid(users) &&
-      (dispatch(register(user)),
-      localStorage.set("users", [...users, user]),
-      navigate("/auth/login"));
+    if (isFormValid(users)) {
+      const { repeatPassword, ...credentials } = formState;
+      const user = { id: uniqueId(), ...credentials, money: 1000, cart: [] };
+      dispatch(register(user));
+      localStorage.set("users", [...users, user]);
+      navigate("/auth/login");
+    }
   };
 
   return (
@@ -118,7 +121,7 @@ const Register = () => {
           <p>If you already have an account,</p>
           <p>
             you can login{" "}
-            <a onClick={() => navigate("/auth/login")} className="inline-link">
+            <a onClick={() => navigate("/auth/login")} className="auth-link">
               here
             </a>
           </p>

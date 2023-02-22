@@ -75,10 +75,7 @@ const Login = () => {
           <p>If you don't have an account,</p>
           <p>
             you can register{" "}
-            <a
-              onClick={() => navigate("/auth/register")}
-              className="inline-link"
-            >
+            <a onClick={() => navigate("/auth/register")} className="auth-link">
               here
             </a>
           </p>
