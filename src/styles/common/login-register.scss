@@ -8,7 +8,7 @@
   height: 100%;
   background-color: $bg-color;
   box-shadow: 4px 4px 6px rgb(0, 0, 0, 0.2);
-  
+
   &__heading {
     margin: 0;
     margin-bottom: 2rem;
@@ -23,7 +23,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: .6rem;
+    gap: 0.6rem;
   }
 
   &__field {
@@ -41,26 +41,10 @@
     background-color: transparent;
     border: 1px solid $main-color;
     box-shadow: 4px 4px 6px rgb(0, 0, 0, 0.2);
-    transition: border .3s ease-in;
+    transition: border 0.3s ease-in;
 
     &.error {
       border: 1px solid $error-color;
-    }
-  }
-
-  &__error {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2rem;
-    text-align: center;
-    color: $error-color;
-    font-size: 0.93rem;
-    opacity: 0;
-    transition: opacity .3s ease-in;
-
-    &.active {
-      opacity: 1;
     }
   }
 }

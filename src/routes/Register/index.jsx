@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import uniqueId from "lodash.uniqueid";
 
-import { register } from "@store/usersReducer";
+import { register } from "@store/reducers/usersReducer";
 import useRegisterForm from "@hooks/useRegisterForm";
 
 import localStorage from "@helpers/localStorage";
@@ -53,11 +53,7 @@ const Register = () => {
             type="text"
             required
           />
-          <div
-            className={`container--auth__error${
-              errors.username ? " active" : ""
-            }`}
-          >
+          <div className={`input__error${errors.username ? " active" : ""}`}>
             {errors.username}
           </div>
         </div>
@@ -71,9 +67,7 @@ const Register = () => {
             type="email"
             required
           />
-          <div
-            className={`container--auth__error${errors.email ? " active" : ""}`}
-          >
+          <div className={`input__error${errors.email ? " active" : ""}`}>
             {errors.email}
           </div>
         </div>
@@ -89,11 +83,7 @@ const Register = () => {
             type="password"
             required
           />
-          <div
-            className={`container--auth__error${
-              errors.password ? " active" : ""
-            }`}
-          >
+          <div className={`input__error${errors.password ? " active" : ""}`}>
             {errors.password}
           </div>
         </div>
@@ -110,9 +100,7 @@ const Register = () => {
             required
           />
           <div
-            className={`container--auth__error${
-              errors.repeatPassword ? " active" : ""
-            }`}
+            className={`input__error${errors.repeatPassword ? " active" : ""}`}
           >
             {errors.repeatPassword}
           </div>

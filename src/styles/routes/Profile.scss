@@ -34,6 +34,19 @@
   padding-block: 0.3rem;
 }
 
+.profile__input--container {
+  position: relative;
+}
+
+// .profile__error {
+//   position: absolute;
+//   left: 0;
+//   bottom: 0;
+//   width: 100%;
+//   transform: translateY(120%);
+//   text-align: center;
+// }
+
 .button--margin-block {
   margin-block: 1rem 0.5rem;
 }

@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import localStorage from "@helpers/localStorage";
-import { login } from "@store/currentUserReducer";
-import { populate } from "@store/usersReducer";
+import { login } from "@store/reducers/currentUserReducer";
+import { populate } from "@store/reducers/usersReducer";
 
 import { RouterProvider } from "react-router-dom";
 import router from "./router";

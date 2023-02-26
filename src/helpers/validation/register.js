@@ -17,6 +17,7 @@ export const validateOnChange = () => {
     if (value.length > 15) return "Password is too long.";
   };
   const repeatPassword = (value, compareValue) => {
+    console.log({ value, compareValue });
     if (!value) return null;
     if (value !== compareValue) return "Passwords do not match.";
     return null;
@@ -24,14 +25,28 @@ export const validateOnChange = () => {
   return { username, email, password, repeatPassword };
 };
 
-export const validateOnSubmit = (initialState, formState, users) => {
-  const newErrors = { ...initialState };
-  const { username, email } = formState;
-  if (users.some(user => user.username === username)) {
-    newErrors.username = "Username already exists.";
+export const validateOnSubmit = (formState, users) => ({
+  username: validateUsername(users, formState.username),
+  email: validateEmail(users, formState.email),
+});
+
+export const validateUsername = (users, username) => {
+  if (users.some(user => user.username == username)) {
+    return "Username already exists.";
   }
-  if (users.some(user => user.email === email)) {
-    newErrors.email = "Email already exists.";
+  return null;
+};
+
+export const validateEmail = (users, email) => {
+  if (users.some(user => user.email == email)) {
+    return "Email already exists.";
   }
-  return newErrors;
+  return null;
+};
+
+export const validatePassword = (user, password) => {
+  if (user.password !== password) {
+    return "Wrong password.";
+  }
+  return null;
 };

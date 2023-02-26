@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { logout, addMoney } from "@store/currentUserReducer";
+import { logout, addMoney } from "@store/reducers/currentUserReducer";
 import useForm from "@hooks/useForm";
 
 import "@styles/common/index.scss";

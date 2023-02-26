@@ -77,3 +77,24 @@
   text-decoration: underline;
   font-style: italic;
 }
+
+.input__error.absolute {
+  position: absolute;
+  width: 100%;
+}
+
+.input__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  text-align: center;
+  color: $error-color;
+  font-size: 0.93rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+
+  &.active {
+    opacity: 1;
+  }
+}

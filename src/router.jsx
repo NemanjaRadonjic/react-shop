@@ -7,6 +7,9 @@ import Main from "@routes/Main";
 import Search from "@routes/Search";
 import Cart from "@routes/Cart";
 import Profile from "@routes/Profile";
+import ChangeUsername from "@routes/Profile/ChangeUsername";
+import ChangeEmail from "@routes/Profile/ChangeEmail";
+import ChangePassword from "@routes/Profile/ChangePassword";
 import NotFound from "@routes/NotFound";
 
 import { productsLoader } from "@routes/Shop";
@@ -33,15 +36,15 @@ const router = createBrowserRouter([
       },
       {
         path: "profile/password",
-        element: <div>change password</div>,
+        element: <ChangePassword />,
       },
       {
         path: "profile/username",
-        element: <div>change username</div>,
+        element: <ChangeUsername />,
       },
       {
         path: "profile/email",
-        element: <div>change email</div>,
+        element: <ChangeEmail />,
       },
       {
         path: "cart",

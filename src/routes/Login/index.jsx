@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { login } from "@store/currentUserReducer";
+import { login } from "@store/reducers/currentUserReducer";
 import useLoginForm from "@hooks/useLoginForm";
 
 import localStorage from "@helpers/localStorage";
@@ -45,9 +45,7 @@ const Login = () => {
             placeholder="Email"
             required
           />
-          <div
-            className={`container--auth__error${errors.email ? " active" : ""}`}
-          >
+          <div className={`input__error${errors.email ? " active" : ""}`}>
             {errors.email}
           </div>
         </div>
@@ -63,11 +61,7 @@ const Login = () => {
             placeholder="Password"
             required
           />
-          <div
-            className={`container--auth__error${
-              errors.password ? " active" : ""
-            }`}
-          >
+          <div className={`input__error${errors.password ? " active" : ""}`}>
             {errors.password}
           </div>
         </div>
