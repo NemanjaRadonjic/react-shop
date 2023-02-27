@@ -18,6 +18,9 @@ const currentUserSlice = createSlice({
     addMoney: (state, action) => {
       state.money += action.payload.amount;
     },
+    purchase: (state, action) => {
+      state.cart.push(action.payload.product);
+    },
   },
 });
 
@@ -28,5 +31,6 @@ export const {
   changeEmail,
   changePassword,
   addMoney,
+  purchase,
 } = currentUserSlice.actions;
 export default currentUserSlice.reducer;

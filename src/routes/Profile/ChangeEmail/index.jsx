@@ -7,6 +7,8 @@ import { changeEmail } from "@store/reducers/currentUserReducer";
 
 import { validateOnChange, validateEmail } from "@helpers/validation/register";
 
+import localStorage from "@helpers/localStorage";
+
 import "@styles/routes/Profile.scss";
 const initialState = { email: "" };
 

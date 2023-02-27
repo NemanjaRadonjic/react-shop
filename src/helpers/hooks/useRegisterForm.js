@@ -1,6 +1,10 @@
 import { useState } from "react";
 import useForm from "@hooks/useForm";
-import { validateOnChange, validateOnSubmit } from "@validation/register";
+import {
+  validateOnChange,
+  validateUsername,
+  validateEmail,
+} from "@validation/register";
 
 const validateInputs = validateOnChange();
 
@@ -44,7 +48,10 @@ const useRegisterForm = initialState => {
 
   const isFormValid = users => {
     if (isValid(errors)) {
-      const newErrors = validateOnSubmit(formState, users);
+      const newErrors = {
+        username: validateUsername(users, formState.username),
+        email: validateEmail(users, formState.email),
+      };
       setErrors(newErrors);
       if (isValid(newErrors)) return true;
     }

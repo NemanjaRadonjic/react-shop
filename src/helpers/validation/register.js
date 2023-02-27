@@ -25,11 +25,6 @@ export const validateOnChange = () => {
   return { username, email, password, repeatPassword };
 };
 
-export const validateOnSubmit = (formState, users) => ({
-  username: validateUsername(users, formState.username),
-  email: validateEmail(users, formState.email),
-});
-
 export const validateUsername = (users, username) => {
   if (users.some(user => user.username == username)) {
     return "Username already exists.";
