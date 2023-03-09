@@ -30,7 +30,7 @@ const Register = () => {
     event.preventDefault();
     if (isFormValid(users)) {
       const { repeatPassword, ...credentials } = formState;
-      const user = { id: uniqueId(), ...credentials, money: 1000, cart: [] };
+      const user = { id: +uniqueId(), ...credentials, money: 1000, cart: [] };
       dispatch(register(user));
       localStorage.set("users", [...users, user]);
       navigate("/auth/login");

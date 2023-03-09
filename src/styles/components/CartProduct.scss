@@ -7,6 +7,7 @@
   border-radius: 4px;
   padding: 1rem;
   box-shadow: 4px 4px 12px rgb(0, 0, 0, 0.12);
+  position: relative;
 }
 
 .cart-product__image {
@@ -16,5 +17,16 @@
   mix-blend-mode: multiply;
 }
 
-.cart-product__info {
+.cart-product__actions {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+
+  & svg {
+    transition: fill 0.3s ease-out;
+  }
+  & svg:hover {
+    fill: $main-color;
+  }
 }

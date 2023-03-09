@@ -44,6 +44,13 @@ const usersSlice = createSlice({
         : user.cart.push({ ...action.payload.product, amount: 1 });
       updateLocalStorage(state, user);
     });
+    builder.addCase("currentUser/removeProduct", (state, action) => {
+      const user = state.find(user => user.id === action.payload.userId);
+      user.cart = user.cart.filter(
+        product => product.id !== action.payload.productId
+      );
+      updateLocalStorage(state, user);
+    });
   },
 });
 
