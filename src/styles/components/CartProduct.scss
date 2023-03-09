@@ -1,0 +1,20 @@
+@import "@styles/variables";
+
+.cart-product {
+  display: flex;
+  gap: 1rem;
+  height: 3.3rem;
+  border-radius: 4px;
+  padding: 1rem;
+  box-shadow: 4px 4px 12px rgb(0, 0, 0, 0.12);
+}
+
+.cart-product__image {
+  height: 100%;
+  width: 3.3rem;
+  background-size: cover;
+  mix-blend-mode: multiply;
+}
+
+.cart-product__info {
+}

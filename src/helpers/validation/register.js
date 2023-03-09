@@ -17,7 +17,6 @@ export const validateOnChange = () => {
     if (value.length > 15) return "Password is too long.";
   };
   const repeatPassword = (value, compareValue) => {
-    console.log({ value, compareValue });
     if (!value) return null;
     if (value !== compareValue) return "Passwords do not match.";
     return null;

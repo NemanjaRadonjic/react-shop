@@ -34,9 +34,14 @@ const usersSlice = createSlice({
       user.password = action.payload.newPassword;
       updateLocalStorage(state, user);
     });
-    builder.addCase("currentUser/purchase", (state, action) => {
+    builder.addCase("currentUser/addToCart", (state, action) => {
       const user = state.find(user => user.id === action.payload.id);
-      user.cart.push(action.payload.product);
+      const product = user.cart.find(
+        product => product.id === action.payload.productId
+      );
+      product
+        ? product.amount++
+        : user.cart.push({ ...action.payload.product, amount: 1 });
       updateLocalStorage(state, user);
     });
   },

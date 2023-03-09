@@ -1,18 +1,18 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { purchase } from "@store/reducers/currentUserReducer";
+import { addToCart } from "@store/reducers/currentUserReducer";
+
+import { truncateString } from "@helpers";
 
 import "@styles/common/index.scss";
 import "@styles/components/Product.scss";
 
 const Product = ({ product, userId }) => {
-  const truncatedTitle = product.title.substring(0, 20) + "...";
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handlePurchase = () => {
-    dispatch(purchase({ product, id: userId }));
+  const handleAddToCart = () => {
+    dispatch(addToCart({ product, id: userId, productId: product.id }));
     navigate("/cart");
   };
 
@@ -20,12 +20,12 @@ const Product = ({ product, userId }) => {
     <div className="product">
       <img className="product__image" src={product.image} />
       <div className="product__info">
-        <div className="product__title">{truncatedTitle}</div>
+        <div className="product__title">{truncateString(product.title)}</div>
         <div className="product__price">{product.price}$</div>
         <div className="product__buttons">
           <button
             className="button--primary"
-            onClick={handlePurchase}
+            onClick={handleAddToCart}
             disabled={!userId && true}
           >
             Buy
