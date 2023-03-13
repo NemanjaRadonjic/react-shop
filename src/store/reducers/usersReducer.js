@@ -51,6 +51,12 @@ const usersSlice = createSlice({
       );
       updateLocalStorage(state, user);
     });
+    builder.addCase("currentUser/purchase", (state, action) => {
+      const user = state.find(user => user.id === action.payload.userId);
+      user.money -= action.payload.total;
+      user.cart = [];
+      updateLocalStorage(state, user);
+    });
   },
 });
 

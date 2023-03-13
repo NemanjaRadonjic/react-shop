@@ -21,7 +21,7 @@ const AuthBar = () => {
         <div className="auth-bar__separator" />
         <div className="auth-bar__username">{currentUser.username}</div>
         <div className="auth-bar__money">
-          {currentUser.money}
+          {currentUser.money.toFixed(2)}
           <MoneySvg />
         </div>
       </div>

@@ -31,6 +31,10 @@ const currentUserSlice = createSlice({
         product => product.id !== action.payload.productId
       );
     },
+    purchase: (state, action) => {
+      state.money -= action.payload.total;
+      state.cart = [];
+    },
   },
 });
 
@@ -43,5 +47,6 @@ export const {
   addMoney,
   addToCart,
   removeProduct,
+  purchase,
 } = currentUserSlice.actions;
 export default currentUserSlice.reducer;
