@@ -1,0 +1,51 @@
+@import "@styles/variables";
+
+.product-modal__container {
+  width: 30rem;
+  background: $bg-color;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 13px;
+  padding: 4rem 2rem;
+  box-shadow: 4px 4px 12px rgb(0, 0, 0, 0.3);
+}
+
+.product-modal {
+  &__close {
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+  }
+  &__image {
+    width: 15rem;
+    height: 15rem;
+  }
+  &__title {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__category {
+    font-style: italic;
+  }
+  &__description {
+    margin-block: 1.5rem;
+  }
+  &__rating__rate {
+    font-weight: bold;
+  }
+  &__rating__count {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  &__price {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+}

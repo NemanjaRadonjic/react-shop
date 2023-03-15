@@ -28,9 +28,13 @@ const Cart = () => {
       }
     };
 
-    const renderCart = currentUser.cart.map(product => (
-      <CartProduct product={product} key={uniqueId()} />
-    ));
+    const renderCart = currentUser.cart.length ? (
+      currentUser.cart.map(product => (
+        <CartProduct product={product} key={uniqueId()} />
+      ))
+    ) : (
+      <div className="cart__message">The cart is empty...</div>
+    );
 
     return (
       <div className="cart__container">
